@@ -30,12 +30,6 @@ class App extends Component {
     }));
   };
 
-  isContactExist = name => {
-    return this.state.contacts.some(
-      contact => contact.name.toLowerCase() === name.toLowerCase()
-    );
-  };
-
   deleteContact = contactId => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== contactId),
@@ -51,6 +45,12 @@ class App extends Component {
     const normalizedFilter = filter.toLowerCase();
     return contacts.filter(contact =>
       contact.name.toLowerCase().includes(normalizedFilter)
+    );
+  };
+
+  isContactExist = name => {
+    return this.state.contacts.some(
+      contact => contact.name.toLowerCase() === name.toLowerCase()
     );
   };
 
